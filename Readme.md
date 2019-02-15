@@ -42,15 +42,17 @@ Antes de executar a Job deve-se alterar a variável *subnet_id:* no arquivo aws.
 
 Aguarde a execução dos steps da Jobs:
 
-1. A execução da Playbook se conecta a sua conta da AWS e cria uma instancia. keypair e security-group. Na criação da instancia ele usa o CloudInit com user-data para instalar o git e docker, após estas instações o repositório da aplicação e clonado junto com o Dockerfile, nesse momento e gerada uma imagem temporária com os componentes necessarios do flask e um docker pull na imagem do MongoDB (assim como suas configurações de database e collections).
-[MongApp](https://github.com/andpupilo0182/MongApp/tree/Prod) 
+1. A execução da Playbook se conecta a sua conta da AWS e cria uma instancia. keypair e security-group. Na criação da instancia ele usa o CloudInit com user-data para instalar o git e docker, após estas instações o repositório da aplicação [MongApp](https://github.com/andpupilo0182/MongApp/tree/Prod) e clonado junto com o Dockerfile, nesse momento e gerada uma imagem temporária com os componentes necessarios do flask e um docker pull na imagem do MongoDB (assim como suas configurações de database e collections).
 
 2. Este step consiste em testar o acesso a instancia com o comando ssh usado a chave criada pela execução da playbook anterior
 
 3. Neste step o sleep é maior pois é necessário esperar que o Docker efetue o download de todas as imagens necessárias, apos isso e efetuado curl na instancia recem criada para testar a conexão com a porta 80
 
 4. É efetuada uma carga na API com o nome Jenkins, para verificar basta acessar http://IP-DA-INSTANCIA/api/users/lista ou curl http:/IP-DA-INSTANCIA/api/users/lista 
+
+
 ![Payload](https://imagizer.imageshack.com/img922/6677/N2rFdj.png)
+
 
 5. Caso tenha um servidor de mensageria [RocketChat](https://rocket.chat/) será enviada uma notificação informando o término da job.
 
