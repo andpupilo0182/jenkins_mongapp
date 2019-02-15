@@ -69,3 +69,32 @@ docker run --name rocketchat -p 80:3000 --env ROOT_URL=http://localhost --link d
 Acesse a porta 80 da maquina que possui o container para finalizar a instalação do RocketChat e crie um canal chamado gupy-analistas crie um WebHook entrante clicando em Administração / Integrações e configure o tokem em seu servidor jenkins em configurações / RocketChat.
 ![RocketChat](https://imagizer.imageshack.com/img922/547/gLXMDB.png)
 
+
+## Considerações
+
+Ferramentas utilizadas:
+
+
+Ansible - Gerenciador de configurações agent-less: Optei por usar o Ansible pelo fato do mesmo possuir muito modulos nativos e dispensar a utilização de agentes nas maquinas alvos, alem da DSL da ferramenta ser simples.
+
+
+Docker - Para simplificar o deploy dos serviços foi um utlizada ferramenta para virtualizar os serviços necessarios como Apache e MongoDB.
+
+
+Boto - Interface CLI em Python para AWS que possui integração com Ansible.
+
+
+MongoDB - Banco de dados documental NoSQL segundo o [Google trends](https://trends.google.com/trends/explore?date=all&q=%2Fm%2F05z_r2n,%2Fm%2F04f32m3,%2Fm%2F09gnj_f,%2Fm%2F03wfh72,Neo4j) o banco de dados mais popular do mundo, resolvi coloca-lo no projeto pelo fato de sua simplicidade e robustez.
+
+
+Apache - Geralmente utilizo Apache ou Lighthttp para pequenos projetos o Nginx utilizo para conteúdos estáticos ou para fazer proxys reversos.
+
+
+Flask - Tenho uma certa facilidade com PHP e Python para construir a API resolvi usar o FLask.
+
+
+RockChat - Projeto nacional e um dos melhores mensageiros da atualidade.
+
+Jenkins - Job Scheduler geralmente utilizo Rundeck para projeto de gerencia de configurações, porem como se trata do deploy de uma aplicação o Jenkins tem suas vantagens devido a grande quantidade de plugins disponíveis.
+
+AWS - Foi escolhido esse player simplesmente pela sua popularidade, caso queira aumentar o numero de instancias basta aumentar o numero de COUNT no arquivo aws.yml para efetuar o deploy em múltiplos servidores.
