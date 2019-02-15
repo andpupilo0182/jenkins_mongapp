@@ -42,7 +42,8 @@ Antes de executar a Job deve-se alterar a variável *subnet_id:* no arquivo aws.
 
 Aguarde a execução dos steps da Jobs:
 
-1. A execução da Playbook se conecta a sua conta da AWS e cria uma instancia. keypair e security-group. Na criação da instancia ele usa o CloudInit com user-data para instalar o git e docker, após estas instações o repositório da aplicação [MongApp](https://github.com/andpupilo0182/MongApp/tree/Prod) e clonado junto com o Dockerfile, nesse momento e gerada uma imagem temporária com os componentes necessarios do flask e um docker pull na imagem do MongoDB (assim como suas configurações de database e collections).
+1. A execução da Playbook se conecta a sua conta da AWS e cria uma instancia. keypair e security-group. Na criação da instancia ele usa o CloudInit com user-data para instalar o git e docker, após estas instações o repositório da aplicação e clonado junto com o Dockerfile, nesse momento e gerada uma imagem temporária com os componentes necessarios do flask e um docker pull na imagem do MongoDB (assim como suas configurações de database e collections).
+[MongApp](https://github.com/andpupilo0182/MongApp/tree/Prod) 
 
 2. Este step consiste em testar o acesso a instancia com o comando ssh usado a chave criada pela execução da playbook anterior
 
