@@ -1,5 +1,6 @@
 ![Imagem do Projeto](https://imagizer.imageshack.com/img922/6745/wSCLM0.png)
 
+
 ## Satisfazendo as dependências
 Instale o gerenciador de pacotes [pip](https://pip.pypa.io/en/stable/installing/) no servidor Jenkins que executara a playbook e rode o comando abaixo:
 ```bash
